@@ -7,6 +7,8 @@ print(type(tupla))
 print(tupla[1:3])  # Slicing a tuple
 # tupla.append(4)  # This will raise an error because tuples are immutable
 print(tupla)
+print(tupla.count(5))  # Count the number of occurrences of an element
+
 
 #comma is necessary to create a tuple with a single element
 single_element_tuple = (5,)
