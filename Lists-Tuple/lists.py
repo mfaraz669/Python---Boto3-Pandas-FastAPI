@@ -25,5 +25,9 @@ print(list2)
 # print(list2) # reverses the order of the list
 list2.insert(1, 8) # inserts 8 at index 1
 print(list2)
-list2.append(1, 6) # adds 6 to the end of the list
-print(list2)
+
+list3 = [1, 2, 1, 3, 4, 5, 6]
+list3.remove(1) # removes the first occurrence of 1 from the list
+print(list3)
+list3.pop(3) # removes the element at index 3 and returns it
+print(list3)
