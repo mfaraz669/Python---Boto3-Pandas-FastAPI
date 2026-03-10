@@ -18,6 +18,8 @@ print(type(student.items()))  # Output: <class 'dict_items'>
 print(student.get("subjects"))  # Output: {'math': 90, 'english': 85, 'chemistry': 95}
 student.update({"grade": "A"})
 print(student)  # Output: {'name': 'demo', 'age': 20, 'subjects': {'math': 90, 'english': 85, 'chemistry': 95}, 'grade': 'A'}
+
+# Updating the name of the student using another dictionary
 student2 = {
     "name": "demo2"
 }
