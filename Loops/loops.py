@@ -12,5 +12,16 @@ count = 100
 while count <= 115:
     print(count)
     count += 1
-    print(count)
+print(count)
+
+i = 1
+while i <= 50:
+    print("hello", i)
+    i+=1
+
+#reverse loop
+i = 10
+while i >= 0:
+    print(i)
+    i-=1
 
