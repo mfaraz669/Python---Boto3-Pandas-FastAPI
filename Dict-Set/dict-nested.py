@@ -9,6 +9,7 @@ student = {
 }
 print(student["name"])  # Output: demo
 print(student["age"])   # Output: 20
+print(student["subjects"]["chemistry"])
 print(student["subjects"]["math"])  # Output: 90
 print(student.values())  # Output: dict_values(['demo', 20, {'math': 90, 'english': 85, 'chemistry': 95}])
 print(student.keys())  # Output: dict_keys(['name', 'age', 'subjects'])
