@@ -1,2 +1,30 @@
 #idea files
 .idea*
+
+# Python bytecode cache
+**/__pycache__/
+*.pyc
+
+# Local environment directory (if uv creates a local .venv)
+.venv/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables / secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
