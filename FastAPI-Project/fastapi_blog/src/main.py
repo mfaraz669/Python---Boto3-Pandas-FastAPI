@@ -1,7 +1,12 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 templates = Jinja2Templates(directory="templates")
 
 posts: list[dict] = [
@@ -24,8 +29,15 @@ posts: list[dict] = [
 @app.get("/", )
 @app.get("/posts", include_in_schema=False) # it will not show under /docs in browser
 def home(request: Request):
-    return templates.TemplateResponse(request, "home.html", {"posts": posts})
+    return templates.TemplateResponse(request, "home.html", {"posts": posts, "title": "Home"},)
 
+@app.get("/account", name="account_page")
+def account_page(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "account.html",
+        {"title": "Account"},
+    )
 
 @app.get("/api/posts")
 def get_posts():
