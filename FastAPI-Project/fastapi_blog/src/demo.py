@@ -90,6 +90,22 @@ def user(user: User):
         "data": user
     }
 
+#nested model
+class Address(BaseModel):
+    city: str
+    pincode: int
+
+class Person(BaseModel):
+    name: str
+    age: int
+    address: Address
+
+@app.post("/person")
+def person(person: Person):
+    return Person
+
+
+
 
 
 
