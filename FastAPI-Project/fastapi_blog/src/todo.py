@@ -47,3 +47,5 @@ def delete_todo(todo_id: int):
             todos.pop(index)
             return {"message:" : "Data Deleted"}
     return {"error": "todo not found"}
+
+
