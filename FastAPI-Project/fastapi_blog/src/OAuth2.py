@@ -1,5 +1,5 @@
 from fastapi import FastAPI,HTTPException,Depends
-from jose import jwt
+from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer,OAuth2PasswordRequestForm
 from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
@@ -56,13 +56,14 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
 #Token verify
 def verify_token(token: str = Depends(oauth2_scheme)):
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM]),
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
+
         if username is None:
-            raise HTTPException(status_code=400, detail="Invalid token")
+            raise HTTPException(status_code=401, detail="Invalid token")
         return username
-    except jwt.JWTError:
-        raise HTTPException(status_code=400, detail="Invalid token")
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
 
 #Protected Route
 @app.get("/protected")
