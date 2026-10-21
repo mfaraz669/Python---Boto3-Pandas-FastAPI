@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+# import os
+# from dotenv import load_dotenv
+from config import settings
+
 app = FastAPI()
 
-#Allowed origins (Front end url)
-origins = [
-    "http://localhost:5173/",
-]
+# load_dotenv()
+origins = settings.origins
+# SECRET_KEY = os.getenv("SECRET_KEY")
+# DB_URL = os.getenv("DB_URL")
 
 app.add_middleware(
     CORSMiddleware,
